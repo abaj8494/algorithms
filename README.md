@@ -1,5 +1,6 @@
 # Welcome to ALGORITHMS!
 
-Here is a collection of various algorithms implemented in various languages. 
+Here is a collection of sorting, searching and graph algorithms implemented in `C`. 
 
-The code in this repo has been engineered to be atomic and reusable as part of larger projects.
+# resources
+- Sedgewick Algorithms in C 3rd edition
