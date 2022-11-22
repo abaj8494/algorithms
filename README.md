@@ -1,6 +1,8 @@
 # Welcome to ALGORITHMS!
 
-Here is a collection of sorting, searching and graph algorithms implemented in `C`. 
+Here is a collection of sorting, searching and graph algorithms. 
 
-# resources
+# References
+
 - Sedgewick Algorithms in C 3rd edition
+- COMP2521 UNSW
