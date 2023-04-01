@@ -12,6 +12,15 @@ typedef struct node{
     Node next;
 } node;
 
+void printlist(Node head, int n){
+    Node curr = head;
+    for (int i = 0; i < n; i++) {
+        printf("%d -> ", curr->p);
+        curr = curr->next;
+    }
+    printf("head\n");
+}
+
 
 int main(int argc, char *argv[])
 {
@@ -23,37 +32,37 @@ int main(int argc, char *argv[])
     // create head node
     Node head = malloc(sizeof(head));
     head->p = n;
-    head->next = NULL;
+    head->next = head; // making it circular
+    Node tail = head; // keeping track of the tail
     // insert rest of nodes
     for (int i = n - 1; i > 0; i--) {
         Node node = malloc(sizeof(node));
         node->p = i;
         node->next = head;
         head = node;
+        tail->next = head;
     }
-
-    // iterate through and set tail->next to head. 
-    Node curr = head;
-    while (curr->next != NULL) {
-        printf("%d -> ", curr->p);
-        curr = curr->next;
-    }
-    Node tail = curr;
-    tail->next = head;
+    // printlist(head, n);
     // circular list complete
     
-    while (head->next != NULL) {
-        // while you have more than one person standing
-        Node curr = head;
-        // get mth
-        for (int i = 0; i + 1 < m; i++) {
+
+    Node curr = head;
+    while (head->next != head) { // while you have more than one person standing
+        // printlist(head, n--);
+        // get (m - 1)th
+        for (int i = 1; i < m - 1; i++) {
             curr = curr->next;
         }
         Node temp = curr->next;
         curr->next = curr->next->next;
-        printf("killing %d\n", temp->p);
+        printf("%d ", temp->p);
+        curr = temp->next;
+        head = curr;
         free(temp);
     }
+    printf("\n");
+    printf("Prisoner %d lives!\n", head->p);
+
 
 
 }
