@@ -62,7 +62,4 @@ int main(int argc, char *argv[])
     }
     printf("\n");
     printf("Prisoner %d lives!\n", head->p);
-
-
-
 }
